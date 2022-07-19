@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for profile in profiles %}
+    {% if profile.user == user %}
+       {% for following in profile.following.all %}
+            <li>{{ following.username }}</li>
+       {% endfor %}
+    {% endif %}
+    {% endfor %}
+{% endblock content %}

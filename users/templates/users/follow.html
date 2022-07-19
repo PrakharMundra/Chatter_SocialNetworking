@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<form action="{% url 'user-follows' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+<a href="{% url 'follower-list' user.username %}">See whom are you following!!</a>
+<h1></h1>
+<a href="{% url 'followers-list' user.username %}">See who follows you</a>
+
+{% endblock content %}
