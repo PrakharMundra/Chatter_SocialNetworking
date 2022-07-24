@@ -115,17 +115,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
  
     def form_valid(self, form):
         form.instance.author = self.request.user
-        profiles=Profile.objects.all()
-        for profile in profiles:
-              for following in profile.following.all():
-                 if following.username==self.request.user.username:
-                    send_mail(
-                           'Chatter',
-                           'New Post!!',
-                           'f20212694@pilani.bits-pilani.ac.in',
-                           [following.email],
-                           fail_silently=False
-                            )
+      
 
         return super().form_valid(form)
 
