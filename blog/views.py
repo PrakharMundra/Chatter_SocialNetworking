@@ -119,7 +119,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         for profile in profiles:
               for following in profile.following.all():
                  if following.username==self.request.user.username:
-                  print('hi')
                   send_mail(
                            'Chatter',
                            'New Post!!',
